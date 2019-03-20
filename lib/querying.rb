@@ -34,6 +34,7 @@ FROM series
 INNER JOIN characters
 ON series.id = characters.series_id
 WHERE characters.species = 'human'
+GROUP BY series.title
 "
 end
 
