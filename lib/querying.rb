@@ -40,5 +40,13 @@ LIMIT 1
 end
 
 def select_character_names_and_number_of_books_they_are_in
-  "Write your SQL query here"
+  "SELECT characters.name, COUNT(books.id) AS number_of_books
+FROM characters
+INNER JOIN character_books
+ON characters.id = character_books.character_id
+INNER JOIN books
+ON character_books.book_id = books.id
+GROUP BY characters.name
+ORDER BY COUNT(books.id) DESC
+"
 end
